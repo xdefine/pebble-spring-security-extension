@@ -13,7 +13,8 @@ dependencies {
    compile 'javax.servlet:javax.servlet-api:3.1.0'
    compile 'org.springframework:spring-web:4.2.4.RELEASE'
    compile 'org.springframework.security:spring-security-web:4.0.3.RELEASE'
-   compile 'com.mitchellbosecke:pebble:2.0.0'
+   compile 'com.mitchellbosecke:pebble:2.1.0'
+   compile 'com.mitchellbosecke:pebble-spring3:2.1.0'
    
    testCompile 'junit:junit:4.12'
 }
