@@ -1,5 +1,7 @@
 package com.hectorlopezfernandez.pebble.springsecurity;
 
+import java.util.Properties;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -7,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
@@ -20,12 +23,15 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 		// login config
 		http.httpBasic();
 		// access rules
-		http.authorizeRequests().anyRequest().hasRole("ADMIN");
+		http.authorizeRequests().anyRequest().permitAll();
 	}
 
 	@Bean
 	public UserDetailsService userDetailsService() {
-		return new CustomUserDetailsService();
+		Properties users = new Properties();
+		users.put("admin","admin,ROLE_ADMIN,enabled");
+		users.put("user","user,ROLE_USER,enabled");
+		return new InMemoryUserDetailsManager(users);
 	}
 
 }

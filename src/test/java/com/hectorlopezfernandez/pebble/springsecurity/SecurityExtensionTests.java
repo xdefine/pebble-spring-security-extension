@@ -48,7 +48,7 @@ public class SecurityExtensionTests {
 	@Test
 	@WithUserDetails("admin")
 	public void authorized() throws Exception {
-		this.mockMvc.perform(get("/admin/index.page").secure(true))
+		this.mockMvc.perform(get("/index.page"))
 			.andExpect(status().isOk())
 			.andExpect(content().string(containsString("ROLE_ADMIN")));
 	}
