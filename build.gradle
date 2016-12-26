@@ -40,5 +40,5 @@ artifacts {
 // Gradle wrapper task
 // Only used when in need to reinstall the wrapper
 task wrapper(type: Wrapper) {
-   gradleVersion = '2.10'
+   gradleVersion = '3.2.1'
 }
