@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.Writer;
 
 import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -13,7 +12,7 @@ import com.mitchellbosecke.pebble.extension.NodeVisitor;
 import com.mitchellbosecke.pebble.node.AbstractRenderableNode;
 import com.mitchellbosecke.pebble.node.BodyNode;
 import com.mitchellbosecke.pebble.node.expression.Expression;
-import com.mitchellbosecke.pebble.spring.PebbleView;
+import com.mitchellbosecke.pebble.spring4.PebbleView;
 import com.mitchellbosecke.pebble.template.EvaluationContext;
 import com.mitchellbosecke.pebble.template.PebbleTemplateImpl;
 import com.mitchellbosecke.pebble.template.ScopeChain;
