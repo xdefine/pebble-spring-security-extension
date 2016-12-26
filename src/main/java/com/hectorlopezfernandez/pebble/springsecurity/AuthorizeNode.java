@@ -41,12 +41,12 @@ public class AuthorizeNode extends AbstractRenderableNode {
     		ServletRequest request = (ServletRequest)scope.get(PebbleView.REQUEST_VARIABLE_NAME);
     		if (request == null) {
     			throw new IllegalStateException("Configuration error. No visible ServletRequest instance could be found"
-    					+ " in the evaluation context. Check if pebble-spring3 is well configured.");
+    					+ " in the evaluation context. Check if pebble-spring4 is well configured.");
     		}
     		ServletResponse response = (ServletResponse)scope.get(PebbleView.RESPONSE_VARIABLE_NAME);
     		if (response == null) {
     			throw new IllegalStateException("Configuration error. No visible ServletResponse instance could be found"
-    					+ " in the evaluation context. Check if pebble-spring3 is well configured.");
+    					+ " in the evaluation context. Check if pebble-spring4 is well configured.");
     		}
     		// evaluate expression
     		Object evaluatedExpression = securityExpression.evaluate(self, context);

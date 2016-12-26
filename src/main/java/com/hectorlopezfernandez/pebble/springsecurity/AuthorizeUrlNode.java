@@ -44,7 +44,7 @@ public class AuthorizeUrlNode extends AbstractRenderableNode {
     		ServletRequest request = (ServletRequest)scope.get(PebbleView.REQUEST_VARIABLE_NAME);
     		if (request == null) {
     			throw new IllegalStateException("Configuration error. No visible ServletRequest instance could be found"
-    					+ " in the evaluation context. Check if pebble-spring3 is well configured.");
+    					+ " in the evaluation context. Check if pebble-spring4 is well configured.");
     		}
     		// evaluate expressions
     		Object evaluatedUrl = urlExpression.evaluate(self, context);
