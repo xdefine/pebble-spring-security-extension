@@ -1,1 +1,1 @@
-{% authorizeUrl "/admin.page" %}AUTHORIZED{% else %}NOT AUTHORIZED{% endAuthorizeUrl %}
+{% authorizeUrl "/admin.page" %}AUTHORIZED{% else %}ERROR{% endAuthorizeUrl %}

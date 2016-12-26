@@ -12,7 +12,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -23,11 +22,6 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes={Application.class}, webEnvironment=WebEnvironment.RANDOM_PORT)
 public class SecurityExtensionTests {
-
-	protected static final String ADMIN_USERNAME = "admin";
-	protected static final String ADMIN_PASSWORD = BCrypt.hashpw("admin", BCrypt.gensalt());
-	protected static final String USER_USERNAME = "user";
-	protected static final String USER_PASSWORD = BCrypt.hashpw("user", BCrypt.gensalt());
 
 	@Autowired
 	private WebApplicationContext wac;
@@ -47,10 +41,42 @@ public class SecurityExtensionTests {
 
 	@Test
 	@WithUserDetails("admin")
-	public void authorized() throws Exception {
-		this.mockMvc.perform(get("/index.page"))
+	public void userIsAuthorizedByRole() throws Exception {
+		this.mockMvc.perform(get("/authorized1.page"))
 			.andExpect(status().isOk())
-			.andExpect(content().string(containsString("ROLE_ADMIN")));
+			.andExpect(content().string(containsString("AUTHORIZED")));
+	}
+	
+	@Test
+	@WithUserDetails("user")
+	public void userIsNotAuthorizedByRole() throws Exception {
+		this.mockMvc.perform(get("/authorized1.page"))
+			.andExpect(status().isOk())
+			.andExpect(content().string(containsString("ERROR")));
+	}
+
+	@Test
+	@WithUserDetails("admin")
+	public void userIsAuthorizedByUrl() throws Exception {
+		this.mockMvc.perform(get("/authorized2.page"))
+			.andExpect(status().isOk())
+			.andExpect(content().string(containsString("AUTHORIZED")));
+	}
+
+	@Test
+	@WithUserDetails("user")
+	public void userIsNotAuthorizedByUrl() throws Exception {
+		this.mockMvc.perform(get("/authorized2.page"))
+			.andExpect(status().isOk())
+			.andExpect(content().string(containsString("ERROR")));
+	}
+
+	@Test
+	@WithUserDetails("admin")
+	public void principalPrintsUserName() throws Exception {
+		this.mockMvc.perform(get("/principal.page"))
+			.andExpect(status().isOk())
+			.andExpect(content().string(containsString("admin")));
 	}
 
 }

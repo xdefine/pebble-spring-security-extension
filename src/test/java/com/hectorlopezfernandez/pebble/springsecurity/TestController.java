@@ -7,11 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TestController {
 
-	@RequestMapping(value="/authenticated.page")
-	public String authenticated(ModelMap model) {
-		return "authenticated";
-	}
-
 	@RequestMapping(value="/authorized1.page")
 	public String authorized1(ModelMap model) {
 		return "authorized1";

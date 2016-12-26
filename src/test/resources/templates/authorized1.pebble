@@ -1,1 +1,1 @@
-{% authorize "hasRole('ADMIN')" %}AUTHORIZED{% else %}NOT AUTHORIZED{% endAuthorize %}
+{% authorize "hasRole('ADMIN')" %}AUTHORIZED{% else %}ERROR{% endAuthorize %}

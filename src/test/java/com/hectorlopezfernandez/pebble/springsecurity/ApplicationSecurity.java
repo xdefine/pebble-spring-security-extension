@@ -23,6 +23,7 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 		// login config
 		http.httpBasic();
 		// access rules
+		http.authorizeRequests().antMatchers("/admin.page").hasRole("ADMIN");
 		http.authorizeRequests().anyRequest().permitAll();
 	}
 
