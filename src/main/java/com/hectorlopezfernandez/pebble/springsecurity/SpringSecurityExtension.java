@@ -11,11 +11,8 @@ import com.mitchellbosecke.pebble.extension.Filter;
 import com.mitchellbosecke.pebble.extension.Function;
 import com.mitchellbosecke.pebble.tokenParser.TokenParser;
 
-public class SecurityExtension extends AbstractExtension {
+public class SpringSecurityExtension extends AbstractExtension {
 	
-    public SecurityExtension() {
-    }
-
     @Override
     public Map<String, Filter> getFilters() {
         return Collections.emptyMap();
