@@ -17,6 +17,10 @@ dependencies {
    compile 'com.mitchellbosecke:pebble-spring4:2.3.0'
    
    testCompile 'junit:junit:4.12'
+   testCompile 'org.springframework.boot:spring-boot-starter-web:1.4.3.RELEASE'
+   testCompile 'org.springframework.boot:spring-boot-starter-security:1.4.3.RELEASE'
+   testCompile 'org.springframework.boot:spring-boot-starter-test:1.4.3.RELEASE'
+   testCompile 'org.springframework.security:spring-security-test:4.1.4.RELEASE'
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {
