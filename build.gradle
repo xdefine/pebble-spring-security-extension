@@ -7,7 +7,7 @@ repositories {
 
 project.sourceCompatibility = '1.7'
 project.archivesBaseName = 'spring-security-extension'
-project.version = '0.0.0'
+project.version = '1.0.0'
 
 dependencies {
    compile 'javax.servlet:javax.servlet-api:3.1.0'
